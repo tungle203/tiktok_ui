@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDebounce } from '~/hooks';
+import axios from 'axios';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
@@ -17,6 +19,8 @@ function Search() {
   const [showResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
 
+  const debounced = useDebounce(searchValue, 500);
+
   const inputRef = useRef();
 
   const handleClear = () => {
@@ -30,23 +34,28 @@ function Search() {
   };
 
   useEffect(() => {
-    if (!searchValue.trim()) {
+    if (!debounced.trim()) {
       setSearchResult([]);
       return;
     }
 
     setLoading(true);
 
-    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-      .then((res) => res.json())
+    axios
+      .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
+        params: {
+          q: debounced,
+          type: 'less',
+        },
+      })
       .then((res) => {
-        setSearchResult(res.data);
+        setSearchResult(res.data.data);
         setLoading(false);
       })
       .catch(() => {
         setLoading(false);
       });
-  }, [searchValue]);
+  }, [debounced]);
 
   return (
     <HeadlessTippy
