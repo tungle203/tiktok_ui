@@ -2,13 +2,14 @@ import classNames from 'classnames/bind';
 import styles from './AccountItems.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import Image from '../Image';
 const cx = classNames.bind(styles);
 function AccountItems() {
   return (
     <div className={cx('wrapper')}>
-      <img
+      <Image
         className={cx('avatar')}
-        src="https://scontent.fsgn19-1.fna.fbcdn.net/v/t39.30808-6/335476206_532131129114062_2397089231255557426_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Og2tEG8cVsoAX8rk6Fp&_nc_ht=scontent.fsgn19-1.fna&oh=00_AfBpngNJ58c4Gv0lgdNPUCDceieZKjFsQeMW59NeCguHlA&oe=64453594"
+        src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/05aa222706c452c8ad0ea7d2e719a745~c5_100x100.jpeg?x-expires=1682233200&x-signature=uUo2tuodsYRtl5e1MoRpCgrTqlk%3D"
         alt="hoaa.hanassii"
       />
       <div className={cx('info')}>
