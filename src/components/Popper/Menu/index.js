@@ -32,6 +32,7 @@ function Menu({ children, items = [] }) {
     <Tippy
       interactive
       delay={[0, 700]}
+      hideOnClick={false}
       offset={[12, 8]}
       placement="bottom-end"
       render={(attrs) => (
