@@ -3,7 +3,7 @@ import { useDebounce } from '~/hooks';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
-import * as searchService from '~/apiServices/searchServive';
+import * as searchService from '~/services/searchServive';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItems from '~/components/AccountItems';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
